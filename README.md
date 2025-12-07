@@ -1,5 +1,8 @@
 # BPJS Bridging Vclaim, APlicare & Pcare for Laravel
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 Bridging VClaim
 
 ### Installation
@@ -43,24 +46,28 @@ add to `.env` file
 
 ```env
 BPJS_PCARE_CONSID="2112121"
-BPJS_PCARE_SCREET_KEY="121212121"
+BPJS_PCARE_SECRET_KEY="1a2b1a2b1a2b"
 BPJS_PCARE_USERNAME="username"
 BPJS_PCARE_PASSWORD="password"
 BPJS_PCARE_APP_CODE="095"
-BPJS_PCARE_BASE_URL="https://dvlp.bpjs-kesehatan.go.id:9081"
-BPJS_PCARE_SERVICE_NAME="pcare-rest-v3.0"
+BPJS_PCARE_BASE_URL="https://apijkn.bpjs-kesehatan.go.id"
+BPJS_PCARE_SERVICE_NAME="pcare-rest"
+BPJS_PCARE_USER_KEY="1a2b3c1a2b3c"
+BPJS_PCARE_ANTREAN_USER_KEY="3c2b1a3c2b1a"
 
 use Bridging\Bpjs\PCare;
 
 function pcare_conf(){
     $config = [
             'cons_id'      => env('BPJS_PCARE_CONSID'),
-            'secret_key'   => env('BPJS_PCARE_SCREET_KEY'),
+            'secret_key'   => env('BPJS_PCARE_SECRET_KEY'),
             'username'     => env('BPJS_PCARE_USERNAME'),
             'password'     => env('BPJS_PCARE_PASSWORD'),
             'app_code'     => env('BPJS_PCARE_APP_CODE'),
             'base_url'     => env('BPJS_PCARE_BASE_URL'),
             'service_name' => env('BPJS_PCARE_SERVICE_NAME'),
+            'user_key' => env('BPJS_PCARE_USER_KEY'),
+            'antrean_user_key' => env('BPJS_PCARE_ANTREAN_USER_KEY'),
     ];
     return $config;
 }
@@ -109,7 +116,7 @@ return $bpjs->nomorUrut($nomorUrut)->tanggalDaftar($tanggalDaftar)->index();
 $bpjs = new PCare\Peserta($this->pcare_conf());
 return $bpjs->keyword($keyword)->show();
 
-// peserta jenis kartu [NIK/NOKA]
+// peserta jenis kartu ["nik" || "noka"]
 $bpjs = new PCare\Peserta($this->pcare_conf());
 return $bpjs->jenisKartu($jenisKartu)->keyword($keyword)->show();
 
@@ -175,6 +182,16 @@ Katalog BPJS:
 - Vclaim V1.1: https://dvlp.bpjs-kesehatan.go.id/VClaim-Katalog
 - Pcare V3: https://new-api.bpjs-kesehatan.go.id/pcare-rest-v3.0
 
+## Contributing
+
+Contributions are more than welcome!
+
+If you find this package useful, consider giving it a star! ⭐
+
 ## Inspirations
 
 - [aamdsam/bridging-bpjs](https://github.com/aamdsam/bridging-bpjs)
+
+## License
+
+[MIT](LICENSE)
