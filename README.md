@@ -17,7 +17,7 @@ add to `.env` file
 
 ```env
 BPJS_CONSID="2112121"
-BPJS_SCREET_KEY="121212121"
+BPJS_SECRET_KEY="121212121"
 BPJS_BASE_URL="https://new-api.bpjs-kesehatan.go.id:8080"
 BPJS_SERVICE_NAME="new-vclaim-rest"
 ```
@@ -28,7 +28,7 @@ use Bridging\Bpjs\VClaim;
 function vclaim_conf(){
     $config = [
         'cons_id' => env('BPJS_CONSID'),
-        'secret_key' => env('BPJS_SCREET_KEY'),
+        'secret_key' => env('BPJS_SECRET_KEY'),
         'base_url' => env('BPJS_BASE_URL'),
         'service_name' => env('BPJS_SERVICE_NAME'),
     ];
