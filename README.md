@@ -18,8 +18,8 @@ add to `.env` file
 ```env
 BPJS_CONSID="2112121"
 BPJS_SECRET_KEY="121212121"
-BPJS_BASE_URL="https://new-api.bpjs-kesehatan.go.id:8080"
-BPJS_SERVICE_NAME="new-vclaim-rest"
+BPJS_BASE_URL="https://apijkn.bpjs-kesehatan.go.id"
+BPJS_SERVICE_NAME="vclaim-rest"
 ```
 
 ```php
